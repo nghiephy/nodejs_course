@@ -1,4 +1,8 @@
 const mongoose = require('mongoose');
+const slug = require('mongoose-slug-generator');
+
+mongoose.plugin(slug);
+
 const Schema = mongoose.Schema;
 
 const Course = new Schema({
@@ -8,6 +12,7 @@ const Course = new Schema({
     slug: { type: String },
     createdAt: { type: Date, default: Date.now },
     updatedAt: { type: Date, default: Date.now },
+    slug: { type: String, slug: 'name', unique: true },
 });
 
 module.exports = mongoose.model('Course', Course);

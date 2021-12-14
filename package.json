@@ -13,7 +13,8 @@
   "dependencies": {
     "express": "^4.17.1",
     "express-handlebars": "^6.0.2",
-    "mongoose": "^6.1.1"
+    "mongoose": "^6.1.1",
+    "mongoose-slug-generator": "^1.0.4"
   },
   "lint-staged": {
     "src/**/*.{js,json,scss}": "prettier --tab-width 4 --single-quote --trailing-comma all --write"

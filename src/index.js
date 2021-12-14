@@ -13,6 +13,10 @@ const hbs = handlebars.create({
     extname: '.hbs',
 });
 
+// Display json in view
+// app.use(express.json());
+// app.use(express.urlencoded());
+
 // Setup static path
 app.use(express.static(path.join(__dirname, 'public')));
 

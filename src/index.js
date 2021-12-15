@@ -2,6 +2,7 @@ const path = require('path');
 const express = require('express');
 const morgan = require('morgan');
 const handlebars = require('express-handlebars');
+const methodOverride = require('method-override');
 const routes = require('./routes');
 const db = require('./config/db');
 
@@ -11,11 +12,17 @@ const app = express();
 const port = 3000;
 const hbs = handlebars.create({
     extname: '.hbs',
+    helpers: {
+        sum: (a, b) => a + b,
+    },
 });
 
 // Display json in view
-// app.use(express.json());
-// app.use(express.urlencoded());
+app.use(express.json());
+app.use(express.urlencoded());
+
+// setup overwrite method
+app.use(methodOverride('_method'));
 
 // Setup static path
 app.use(express.static(path.join(__dirname, 'public')));

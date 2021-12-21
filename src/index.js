@@ -19,7 +19,7 @@ const hbs = handlebars.create({
 
 // Display json in view
 app.use(express.json());
-app.use(express.urlencoded());
+app.use(express.urlencoded({ extended: true }));
 
 // setup overwrite method
 app.use(methodOverride('_method'));
